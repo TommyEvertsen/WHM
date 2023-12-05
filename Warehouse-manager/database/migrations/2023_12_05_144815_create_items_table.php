@@ -20,8 +20,7 @@ return new class extends Migration
             $table->string('ID/OD');
             $table->unsignedBigInteger('stativ_id');
             $table->foreign('stativ_id')->references('id')->on('stativs');
-            $table->foreign('stativ_rows')->references('rows')->on('stativs');
-            $table->foreign('stativ_columns')->references('columns')->on('stativs');
+           
           
         });
     }
