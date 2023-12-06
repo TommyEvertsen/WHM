@@ -32,7 +32,9 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </NavLink>
+                                <NavLink :href="route('stativ.index')" :active="route().current('stativ.index')">Stativ</NavLink>
                             </div>
+                            
                         </div>
 
                         <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -115,6 +117,7 @@ const showingNavigationDropdown = ref(false);
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
                         </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('stativ.index')" :active="route().current('stativ.index')">Stativ</ResponsiveNavLink>
                     </div>
 
                     <!-- Responsive Settings Options -->

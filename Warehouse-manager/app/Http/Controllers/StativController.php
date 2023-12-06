@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
+use Illuminate\Http\RedirectResponse;
 
 class StativController extends Controller
 {
@@ -16,7 +17,8 @@ class StativController extends Controller
     public function index(): Response
     {
         return Inertia::render('Stativ/Index', [
-            
+            'stativ' => Stativ::select('id', 'name', 'rows', 'columns', 'measurementSize', 'created_at', 'updated_at')->latest()->get(),
+
         ]);
     }
 
@@ -31,9 +33,25 @@ class StativController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+        try {
+            $validated = $request->validate([
+                'name' => 'required|string|max:50',
+                'rows' => 'required|integer',
+                'columns' => 'required|integer',
+                'measurementSize' => 'required|integer',
+            ]);
+    
+            // Create a new standalone stativ
+            Stativ::create($validated);
+    
+            return redirect(route('stativ.index'));
+    
+        } catch (\Exception $e) {
+            // Log or dd($e) the error for debugging
+            dd($e->getMessage());
+        }
     }
 
     /**
