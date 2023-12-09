@@ -12,7 +12,7 @@ defineProps(['stativ']);
                 <div>
                     <span class="text-gray-800">{{ stativ.name }}</span> 
                     <span class="text-gray-800">"{{ stativ.measurementSize }}"</span> <br> <br>
-                    <small class="ml-2 text-sm text-gray-600">Created at{{ new Date(stativ.created_at).toLocaleString() }}</small>
+                    <!-- <small class="ml-2 text-sm text-gray-600">Created at{{ new Date(stativ.created_at).toLocaleString() }}</small> -->
                 
                     <table class="border-collapse border border-gray-300 mt-4">
           <tbody>
