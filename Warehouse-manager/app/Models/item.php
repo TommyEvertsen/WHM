@@ -14,4 +14,12 @@ class item extends Model
     {
         return $this->belongsTo(Stativ::class);
     }
+
+    protected $fillable = [
+        'name',
+        'dimension',
+        'length',
+        'ID/OD',
+        'stativ_id',
+    ];
 }

@@ -31,6 +31,12 @@ const form = useForm({
     <PrimaryButton class="mt-4">Make stativ</PrimaryButton>
 </form>
 
+<div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
+        <form @submit.prevent="form.post(route('item.store'), { onSuccess: () => form.reset() })">
+            <textarea v-model="form.name" ></textarea>
+        </form>
+    </div>
+
             <div class="mt-6 bg-white shadow-sm rounded-lg divide-y">
                 <Stativ
                     v-for="stativ in stativ"
