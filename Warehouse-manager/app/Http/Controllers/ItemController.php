@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\item;
 use App\Http\Controllers\Controller;
+use App\Models\Item as ModelsItem;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class ItemController extends Controller
 {
@@ -27,9 +30,20 @@ class ItemController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+        $validated = $request->validate([
+
+            'name' => 'required|string|max:50',
+            'inner_outer' => 'required|string',
+            'dimension' => 'required|integer',
+            'length' => 'required|integer',
+
+        ]);
+
+    Item::create($validated);
+
+        return redirect(route('stativ.index'));
     }
 
     /**

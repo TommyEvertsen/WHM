@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class item extends Model
+class Item extends Model
 {
     use HasFactory;
 
@@ -21,5 +21,6 @@ class item extends Model
         'length',
         'ID/OD',
         'stativ_id',
+        'inner_outer',
     ];
 }

@@ -5,7 +5,12 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import { useForm, Head } from '@inertiajs/vue3';
 import Stativ from '@/Components/Stativ.vue';
 
-defineProps(['stativ']);
+
+defineProps([
+    'stativ',
+    'item'
+]);
+
  
 const form = useForm({
     name: '',
@@ -13,6 +18,9 @@ const form = useForm({
     columns: '',
     measurementSize: '',
 });
+
+
+
 </script>
  
 <template>
@@ -31,11 +39,30 @@ const form = useForm({
     <PrimaryButton class="mt-4">Make stativ</PrimaryButton>
 </form>
 
-<div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8">
-        <form @submit.prevent="form.post(route('item.store'), { onSuccess: () => form.reset() })">
-            <textarea v-model="form.name" ></textarea>
+<br><br>
+
+<form @submit.prevent="form.post(route('item.store'), { onSuccess: () => form.reset() })">
+            <textarea v-model="form.name" placeholder="Name item?" class="block w-full border-gray-100 ..."></textarea>
+            
+            <div>ID/OD</div>
+            <select v-model="form.inner_outer">
+            <option disabled value="">Velg en</option>
+            <option>ID</option>
+            <option>OD</option>
+            </select>
+
+            <br>
+
+            <div>Lengde</div>
+            <textarea v-model="form.length" placeholder="lengde" ></textarea>
+
+            <div>Dybde</div>
+            <textarea v-model="form.dimension" placeholder="dybde" ></textarea>
+
+
+
+
         </form>
-    </div>
 
             <div class="mt-6 bg-white shadow-sm rounded-lg divide-y">
                 <Stativ

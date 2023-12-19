@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\stativ;
 use App\Http\Controllers\Controller;
+use App\Models\Item;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -18,7 +19,7 @@ class StativController extends Controller
     {
         return Inertia::render('Stativ/Index', [
             'stativ' => Stativ::select('id', 'name', 'rows', 'columns', 'measurementSize', 'created_at', 'updated_at')->latest()->get(),
-
+            'item' => Item::all()
         ]);
     }
 
