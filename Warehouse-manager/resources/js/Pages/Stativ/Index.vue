@@ -58,7 +58,6 @@ const form = useForm({
 
             <div>Dybde</div>
             <textarea v-model="form.dimension" placeholder="dybde" ></textarea>
-
         </form>
 
             <div class="mt-6 bg-white shadow-sm rounded-lg divide-y">
